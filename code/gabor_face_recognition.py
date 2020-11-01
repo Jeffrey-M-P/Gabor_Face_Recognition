@@ -6,7 +6,7 @@ import cv2 as cv
 from pylab import *
 from numpy import *
 import numpy as np
-
+import matplotlib.pyplot as plt
 
 ############gamma校正查找表
 def BuildTable(gamma):
@@ -44,6 +44,7 @@ def img2vector(image):
     image=cv.imread(image,1)
     image = cv.resize(image, (92, 112), interpolation=cv.INTER_CUBIC)
     src = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+
     src=GammaCorrectiom(src,0.8)
     src=DoG(src,0.9,0.3)
     src=cv.equalizeHist(src)
