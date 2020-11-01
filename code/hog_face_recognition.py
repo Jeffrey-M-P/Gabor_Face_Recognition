@@ -11,7 +11,7 @@ def image_detection_OCR(pic_path):
     faceCascade = cv2.CascadeClassifier("E:/haarcascade_frontalface_default.xml")
     gray= cv2.imread(pic_path)
     faces = faceCascade.detectMultiScale(gray, scaleFactor=1.05, minNeighbors=2, minSize=(5,20))
-    print "Found {0} faces!".format(len(faces))
+    print ("Found {0} faces!".format(len(faces)))
     for (x, y, w, h) in faces:
         # print x,y,w,h
         roi_gray = gray[y-15:y+h+4, x:x+w+4]
@@ -24,7 +24,7 @@ def image_detection_identity(pic_path):
     faceCascade = cv2.CascadeClassifier("E:/haarcascade_frontalface_default.xml")
     gray = cv2.imread(pic_path)
     faces = faceCascade.detectMultiScale(gray, scaleFactor=1.05, minNeighbors=5, minSize=(1,100))
-    print "Found {0} faces!".format(len(faces))
+    print ("Found {0} faces!".format(len(faces)))
     for (x, y, w, h) in faces:
         # print x,y,w,h
         roi_gray = gray[y-20:y +108, x-2:x + 110]
@@ -56,7 +56,7 @@ def GammaCorrectiom(img1,gamma):
 
 ######图像预处理
 def image_process(img1):
-    print img1.shape
+    print (img1.shape)
     img1_gray = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
     img1_gray1 = GammaCorrectiom(img1_gray,0.8)
     return img1_gray1
@@ -236,8 +236,8 @@ if __name__ == '__main__':
     hist1=hog_detector(roi_gray1);
     hist2=hog_detector(roi_gray2);
 
-    print len(hist1)
-    print len(hist2)
+    print (len(hist1))
+    print (len(hist2))
     hist11=[]
     for each in hist1:
         for k in each:
@@ -246,7 +246,7 @@ if __name__ == '__main__':
     for each in hist2:
         for k in each:
             hist22.append(k)
-    print "the Image similary is %s" % cos_dist(hist11,hist22)
+    print ("the Image similary is %s" % cos_dist(hist11,hist22))
 
 
 
@@ -260,8 +260,8 @@ if __name__ == '__main__':
     cv2.waitKey(0)
     cv2.destroyAllWindows()
     time2 = time.time()
-    print u'ok,程序结束!'
-    print u'总共耗时：' + str(time2 - time1) + 's'
+    print (u'ok,程序结束!')
+    print (u'总共耗时：' + str(time2 - time1) + 's')
 
 
 

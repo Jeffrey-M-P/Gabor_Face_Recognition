@@ -91,7 +91,7 @@ def pca(data,k):
     D,V = linalg.eig(T1) #特征值与特征向量
     V1 = V[:,0:k]#取前k个特征向量
     V1 = Z.T*V1
-    for i in xrange(k): #特征向量归一化
+    for i in range(k): #特征向量归一化
         L = linalg.norm(V1[:,i])
         V1[:,i] = V1[:,i]/L
 
@@ -104,7 +104,7 @@ def pca(data,k):
 #load dataSet
 def loadDataSet(k):  #choose k(0-10) people as traintest for everyone
     ##step 1:Getting data set
-    print "--Getting data set---"
+    print ("--Getting data set---")
     #note to use '/'  not '\'
     dataSetDir = 'E:/att_faces'
     #显示文件夹内容
@@ -114,10 +114,10 @@ def loadDataSet(k):  #choose k(0-10) people as traintest for everyone
     train_face_number = zeros(40*k)
     test_face = zeros((40*(10-k),4660*40))
     test_face_number = zeros(40*(10-k))
-    for i in xrange(40): #40 sample people
-        print i
+    for i in range(40): #40 sample people
+        print (i)
         people_num = i+1
-        for j in xrange(10): #everyone has 10 different face
+        for j in range(10): #everyone has 10 different face
             if j < k:
                 filename = dataSetDir+'/s'+str(people_num)+'/'+str(choose[j])+'.pgm'
                 img = img2vector(filename)
@@ -182,11 +182,11 @@ def get_hist(filename1,filename2):
     p2 = p2.getA()
     for each in p2:
         p22 = each
-    print "Image similarity is:%s" % cos_dist(p11, p22)
+    print ("Image similarity is:%s" % cos_dist(p11, p22))
     if cos_dist(p11, p22)>0.6:
-        print "很相似，是同一个人！"
+        print ("很相似，是同一个人！")
     else:
-        print "不太像，不是同一个人！"
+        print ("不太像，不是同一个人！")
     cv.imshow("img11",img11)
     cv.imshow("img22",img22)
     cv.waitKey(0)
@@ -198,7 +198,7 @@ def image_detection_OCR(pic_path):
     faceCascade = cv.CascadeClassifier("E:/haarcascade_frontalface_default.xml")
     gray= cv.imread(pic_path)
     faces = faceCascade.detectMultiScale(gray, scaleFactor=1.05, minNeighbors=2, minSize=(5,20))
-    print "Found {0} faces!".format(len(faces))
+    print ("Found {0} faces!".format(len(faces)))
     for (x, y, w, h) in faces:
         roi_gray = gray[y:y +h, x:x+w]
         roi_gray=cv.resize(roi_gray, (92, 112), interpolation=cv.INTER_CUBIC)
@@ -210,7 +210,7 @@ def image_detection_identity(pic_path):
     faceCascade = cv.CascadeClassifier("E:/haarcascade_frontalface_default.xml")
     gray = cv.imread(pic_path)
     faces = faceCascade.detectMultiScale(gray, scaleFactor=1.05, minNeighbors=5, minSize=(1,100))
-    print "Found {0} faces!".format(len(faces))
+    print ("Found {0} faces!".format(len(faces)))
     for (x, y, w, h) in faces:
         roi_gray = gray[y:y + 112, x+10:x + 102]
     return roi_gray
@@ -243,11 +243,11 @@ def get_hist2(filename1,filename2):
     p2 = p2.getA()
     for each in p2:
         p22 = each
-    print "Image similarity is:%s" % cos_dist(p11, p22)
+    print ("Image similarity is:%s" % cos_dist(p11, p22))
     if cos_dist(p11, p22)>0.6:
-        print "很相似，是同一个人！"
+        print ("很相似，是同一个人！")
     else:
-        print "不太像，不是同一个人！"
+        print ("不太像，不是同一个人！")
     cv.imshow("img11",img11)
     cv.imshow("img22",img22)
     cv.waitKey(0)
@@ -274,6 +274,6 @@ if __name__ == '__main__':
 
 
     time2 = time.time()
-    print u'ok,程序结束!'
-    print u'总共耗时：' + str(time2 - time1) + 's'
+    print (u'ok,程序结束!')
+    print (u'总共耗时：' + str(time2 - time1) + 's')
 
