@@ -165,7 +165,9 @@ def cos_dist(a, b):
 #######两张人脸图片对比
 def get_hist(filename1,filename2):
     img11=cv.imread(filename1)
+    print("img11", type(img11))
     img22=cv.imread(filename2)
+    print("img22", type(img22))
     img11=cv.resize(img11, (92,112), interpolation=cv.INTER_CUBIC)
     img22=cv.resize(img22, (92,112), interpolation=cv.INTER_CUBIC)
     img11=cv.cvtColor(img11, cv.COLOR_BGR2GRAY)
