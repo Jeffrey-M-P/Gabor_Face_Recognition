@@ -197,7 +197,7 @@ def get_hist(filename1, filename2):
 
 
 def image_detection_OCR(pic_path):
-    faceCascade = cv.CascadeClassifier("E:/haarcascade_frontalface_default.xml")
+    faceCascade = cv.CascadeClassifier("../resource/haarcascade_frontalface_default.xml")
     gray = cv.imread(pic_path)
     faces = faceCascade.detectMultiScale(gray, scaleFactor=1.05, minNeighbors=2, minSize=(5, 20))
     print("Found {0} faces!".format(len(faces)))
@@ -209,7 +209,7 @@ def image_detection_OCR(pic_path):
 
 
 def image_detection_identity(pic_path):
-    faceCascade = cv.CascadeClassifier("E:/haarcascade_frontalface_default.xml")
+    faceCascade = cv.CascadeClassifier("../resource/haarcascade_frontalface_default.xml")
     gray = cv.imread(pic_path)
     faces = faceCascade.detectMultiScale(gray, scaleFactor=1.05, minNeighbors=5, minSize=(1, 100))
     print("Found {0} faces!".format(len(faces)))
@@ -253,9 +253,9 @@ def get_hist2(filename1, filename2):
 
 
 if __name__ == '__main__':
-    filename1 = "../images/jeff_01.png"
+    filename1 = "../images/jeff_s/1.pgm"
     # filename1="E:/yale/s5.bmp"
-    filename2 = "../images/jeff_02.png"
+    filename2 = "../images/jeff_s/2.pgm"
     # filename2="E:/yale/s6.bmp"
 
     # img1=image_detection_identity(filename1)
