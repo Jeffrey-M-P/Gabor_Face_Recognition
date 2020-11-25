@@ -255,7 +255,7 @@ def get_hist2(filename1, filename2):
 if __name__ == '__main__':
     filename1 = "../images/jeff_s/1.pgm"
     # filename1="E:/yale/s5.bmp"
-    filename2 = "../images/jeff_s/2.pgm"
+    filename2 = "../images/jeff_s/10.pgm"
     # filename2="E:/yale/s6.bmp"
 
     # img1=image_detection_identity(filename1)
